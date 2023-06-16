@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { AccountService } from '../app/_services/account.service';
 import { User } from '../app/_models/user';
@@ -9,20 +9,33 @@ import { User } from '../app/_models/user';
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  user?: User | null;
+export class AppComponent implements OnInit {
+  user: User | null = null;
+  selectedLink: string = '';
+  isLoginPage: boolean = false;
 
   constructor(private accountService: AccountService, private router: Router) {
     this.accountService.user.subscribe((x) => (this.user = x));
+  }
+
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Verificar si la ruta actual es la página de inicio de sesión
+        this.isLoginPage = event.url.includes('/account/login');
+      }
+    });
   }
 
   logout() {
     this.accountService.logout();
   }
 
-  selectedLink: string = '';
-
   selectLink(link: string) {
     this.selectedLink = link;
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.user;
   }
 }

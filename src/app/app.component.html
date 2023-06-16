@@ -1,5 +1,5 @@
 <!-- nav -->
-<nav class="nav" *ngIf="user">
+<nav class="nav">
   <a class="links" routerLink="/">Home</a>
   <div class="logo">
     <img
@@ -7,10 +7,9 @@
       alt="Logo de Star Wars"
     />
   </div>
-  <a class="links" (click)="logout()">Logout</a>
+  <a class="links" (click)="logout()" *ngIf="isAuthenticated()">Logout</a>
 </nav>
-<!-- menu -->
-<div class="menu d-flex justify-content-center link-container fs-5">
+<div class="menu" *ngIf="isAuthenticated()">
   <div
     class="link-container py-2"
     [ngClass]="{ selected: selectedLink === 'home' }"

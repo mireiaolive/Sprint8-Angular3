@@ -1,0 +1,46 @@
+<div class="lh-1" *ngIf="nau">
+  <h3 class="text-center py-3 border border-bottom">
+    {{ nau.name | uppercase }}
+  </h3>
+  <div class="container d-flex justify-content-center align-self-center py-4">
+    <div class="text">
+      <p><strong>Model: </strong> {{ nau.model }}</p>
+      <p><strong>Starship Class: </strong> {{ nau.starship_class }}</p>
+      <p><strong>Manufacturer: </strong> {{ nau.manufacturer }}</p>
+      <p><strong>Cost: </strong> {{ nau.cost_in_credits }}</p>
+      <p><strong>Crew: </strong> {{ nau.crew }}</p>
+      <p><strong>Passenger Capacity: </strong> {{ nau.passengers }}</p>
+      <p><strong>Cargo Capacity: </strong> {{ nau.cargo_capacity }}</p>
+      <p><strong>Consumables: </strong> {{ nau.consumables }}</p>
+      <div class="d-flex">
+        <p>
+          <strong>Pilots:</strong>
+        </p>
+        <div class="d-flex" *ngIf="pilotImages.length > 0">
+          <div *ngFor="let image of pilotImages">
+            <img
+              class="pilot-img mx-2 p-1 flex-fill"
+              [src]="image"
+              alt="Pilot Image"
+            />
+          </div>
+        </div>
+      </div>
+      <p><strong>Length: </strong> {{ nau.length }}</p>
+      <p>
+        <strong>Maximum Atmosphering Speed: </strong>
+        {{ nau.max_atmosphering_speed }}
+      </p>
+      <p><strong>Hyperdrive Rating: </strong>{{ nau.hyperdrive_rating }}</p>
+      <p><strong>Maximum Speed In Realspace: </strong>{{ nau.MGLT }}</p>
+    </div>
+    <div class="image">
+      <div *ngIf="!imageError">
+        <img class="ok-img" [src]="imageUrl" (error)="onImageError()" />
+      </div>
+      <div *ngIf="imageError">
+        <img class="error-img" [src]="errorImageUrl" />
+      </div>
+    </div>
+  </div>
+</div>

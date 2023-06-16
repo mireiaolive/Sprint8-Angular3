@@ -1,0 +1,24 @@
+<div class="container-fluid text-light">
+  <div class="row justify-content-center">
+    <div
+      *ngFor="let nau of naus"
+      class="col-8 m-3 p-3 fw-lighter fs-6 title-style"
+      style="background-color: #151515"
+    >
+      <a [routerLink]="['/fitxa']" (click)="verDetalles(nau)">
+        <h3>{{ nau.name }}</h3>
+      </a>
+      <p>{{ nau.model }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex flex-column align-items-center">
+      <button (click)="loadStarships()" class="btn btn-warning">
+        VIEW MORE
+      </button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

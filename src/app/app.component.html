@@ -1,0 +1,29 @@
+<!-- nav -->
+<nav class="nav" *ngIf="user">
+  <a class="links" routerLink="/">Home</a>
+  <div class="logo">
+    <img
+      src="../../../../assets/star-wars-logo-31.png"
+      alt="Logo de Star Wars"
+    />
+  </div>
+  <a class="links" (click)="logout()">Logout</a>
+</nav>
+<!-- menu -->
+<div class="menu d-flex justify-content-center link-container fs-5">
+  <div
+    class="link-container py-2"
+    [ngClass]="{ selected: selectedLink === 'home' }"
+  >
+    <a routerLink="/" (click)="selectLink('home')">HOME</a>
+  </div>
+  <div
+    class="link-container py-2"
+    [ngClass]="{ selected: selectedLink === 'starships' }"
+  >
+    <a routerLink="/starships" (click)="selectLink('starships')">STARSHIPS</a>
+  </div>
+</div>
+
+<!-- main app container -->
+<router-outlet></router-outlet>

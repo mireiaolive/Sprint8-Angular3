@@ -2,14 +2,26 @@ nav {
   background-color: black;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px 50px 20px 50px;
+  gap: 20px;
 }
 
 .logo {
+  flex: 1;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.right-links {
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
 }
 
 .logo img {
@@ -22,6 +34,7 @@ nav {
 }
 
 a {
+  font-size: 18px;
   text-decoration: none;
   color: white;
   cursor: pointer;

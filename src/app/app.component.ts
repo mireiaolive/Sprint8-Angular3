@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   user: User | null = null;
   selectedLink: string = '';
   isLoginPage: boolean = false;
+  isRegisterPage: boolean = false;
 
   constructor(private accountService: AccountService, private router: Router) {
     this.accountService.user.subscribe((x) => (this.user = x));
@@ -23,6 +24,8 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         // Verificar si la ruta actual es la página de inicio de sesión
         this.isLoginPage = event.url.includes('/account/login');
+        // Verificar si la ruta actual es la página de registro
+        this.isRegisterPage = event.url.includes('/account/register');
       }
     });
   }

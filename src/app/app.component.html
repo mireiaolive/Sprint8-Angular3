@@ -1,14 +1,19 @@
 <!-- nav -->
-<nav class="nav">
-  <a class="links" routerLink="/">Home</a>
+<nav class="nav" *ngIf="isLoginPage || isAuthenticated() || isRegisterPage">
   <div class="logo">
     <img
       src="../../../../assets/star-wars-logo-31.png"
       alt="Logo de Star Wars"
     />
   </div>
+  <div class="right-links" *ngIf="isLoginPage">
+    <a class="link" routerLink="account/login">Login</a>
+    <a class="link" routerLink="account/register">Register</a>
+  </div>
   <a class="links" (click)="logout()" *ngIf="isAuthenticated()">Logout</a>
 </nav>
+
+<!-- menu -->
 <div class="menu" *ngIf="isAuthenticated()">
   <div
     class="link-container py-2"

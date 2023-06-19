@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../app/home/home.component';
-import { FitxaComponent } from './fitxa/fitxa.component';
-import { StarshipsComponent } from './starships/starships.component';
-import { LoginComponent } from '../app/login/login.component';
-import { RegisterComponent } from '../app/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { FitxaComponent } from './components/fitxa/fitxa.component';
+import { StarshipsComponent } from './components/starships/starships.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from '../app/_helpers/auth.guard';
 
 const routes: Routes = [

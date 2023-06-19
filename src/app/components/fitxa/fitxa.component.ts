@@ -1,6 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { StarshipService } from '../_services/starship.service';
+import { StarshipService } from '../../_services/starship.service';
 import { forkJoin, Observable } from 'rxjs';
 
 @Component({

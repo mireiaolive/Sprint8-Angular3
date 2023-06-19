@@ -19,9 +19,17 @@ export class StarshipService {
     return `https://starwars-visualguide.com/assets/img/characters/${pilotId}.jpg`;
   }
 
+  getFilmImageUrl(filmId: number): string {
+    return `https://starwars-visualguide.com/assets/img/films/${filmId}.jpg`;
+  }
+
   getStarships(): Observable<any> {
     const url = `${this.baseUrl}/?page=${this.nextPage}`;
     this.nextPage++;
     return this.http.get<any>(url);
+  }
+
+  getFilmDetails(filmUrl: string): Observable<any> {
+    return this.http.get<any>(filmUrl);
   }
 }

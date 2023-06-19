@@ -36,12 +36,13 @@
 <main>
   <div *ngIf="showWelcomeImage">
     <!-- Código HTML de la imagen de bienvenida -->
-    <h1>Bienvenido/a</h1>
     <img
-      src="../../../../assets/welcome-image.jpg"
+      class="img-welcome"
+      src="../assets/inicial-background-1.jpg"
       alt="Imagen de bienvenida"
     />
   </div>
+
   <div *ngIf="!showWelcomeImage">
     <router-outlet></router-outlet>
   </div>

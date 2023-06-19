@@ -33,7 +33,9 @@
       </p>
       <p><strong>Hyperdrive Rating: </strong>{{ nau.hyperdrive_rating }}</p>
       <p><strong>Maximum Speed In Realspace: </strong>{{ nau.MGLT }}</p>
+      <strong>Realted Films: </strong>
     </div>
+
     <div class="image">
       <div *ngIf="!imageError">
         <img class="ok-img" [src]="imageUrl" (error)="onImageError()" />
@@ -42,5 +44,11 @@
         <img class="error-img" [src]="errorImageUrl" />
       </div>
     </div>
+  </div>
+</div>
+<div class="container d-flex justify-content-center">
+  <div *ngFor="let film of films">
+    <h4>{{ film.title }}</h4>
+    <img class="img-film" [src]="film.imageUrl" alt="Film Image" />
   </div>
 </div>

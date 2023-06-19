@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-
 import { AccountService } from '../app/_services/account.service';
 import { User } from '../app/_models/user';
 
@@ -14,12 +13,18 @@ export class AppComponent implements OnInit {
   selectedLink: string = '';
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
+  showWelcomeImage: boolean = true;
 
   constructor(private accountService: AccountService, private router: Router) {
     this.accountService.user.subscribe((x) => (this.user = x));
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.showWelcomeImage = false;
+      this.router.navigate(['/account/login']);
+    }, 5000);
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Verificar si la ruta actual es la página de inicio de sesión

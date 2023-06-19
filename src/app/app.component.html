@@ -1,16 +1,20 @@
 <!-- nav -->
-<nav class="nav" *ngIf="isLoginPage || isAuthenticated() || isRegisterPage">
+<nav class="nav">
   <div class="logo">
     <img
       src="../../../../assets/star-wars-logo-31.png"
       alt="Logo de Star Wars"
     />
   </div>
-  <div class="right-links" *ngIf="isLoginPage">
-    <a class="link" routerLink="account/login">Login</a>
-    <a class="link" routerLink="account/register">Register</a>
+  <div class="right-links">
+    <ng-container *ngIf="isAuthenticated(); else loginLinks">
+      <a class="link" (click)="logout()">Logout</a>
+    </ng-container>
+    <ng-template #loginLinks>
+      <a class="link" routerLink="account/login">Login</a>
+      <a class="link" routerLink="account/register">Register</a>
+    </ng-template>
   </div>
-  <a class="links" (click)="logout()" *ngIf="isAuthenticated()">Logout</a>
 </nav>
 
 <!-- menu -->
@@ -29,5 +33,16 @@
   </div>
 </div>
 
-<!-- main app container -->
-<router-outlet></router-outlet>
+<main>
+  <div *ngIf="showWelcomeImage">
+    <!-- Código HTML de la imagen de bienvenida -->
+    <h1>Bienvenido/a</h1>
+    <img
+      src="../../../../assets/welcome-image.jpg"
+      alt="Imagen de bienvenida"
+    />
+  </div>
+  <div *ngIf="!showWelcomeImage">
+    <router-outlet></router-outlet>
+  </div>
+</main>

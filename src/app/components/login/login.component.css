@@ -1,5 +1,9 @@
 .login-container {
-  background-color: white;
   padding: 20px;
   margin: 20px;
+}
+
+.login-box {
+  background-color: #333333;
+  color: #ffffff;
 }

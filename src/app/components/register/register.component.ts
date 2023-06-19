@@ -5,7 +5,10 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from '../../_services/account.service';
 
-@Component({ templateUrl: 'register.component.html' })
+@Component({
+  templateUrl: 'register.component.html',
+  styleUrls: ['./register.component.css'],
+})
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
   loading = false;

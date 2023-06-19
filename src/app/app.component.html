@@ -35,12 +35,14 @@
 
 <main>
   <div *ngIf="showWelcomeImage">
-    <!-- Código HTML de la imagen de bienvenida -->
     <img
       class="img-welcome"
       src="../assets/inicial-background-1.jpg"
       alt="Imagen de bienvenida"
     />
+    <button class="go-to-starships-btn">
+      <a routerLink="/starships" class="go-to-starships">Go to Starships</a>
+    </button>
   </div>
 
   <div *ngIf="!showWelcomeImage">
